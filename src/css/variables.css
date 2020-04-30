@@ -1,25 +1,25 @@
 /* Colors */
 :root {
-	--primary: rgb(16,107,255);
-	--highlight: rgba(97,157,238,1);
+	--primary: rgba(239,129,6,1);
+	--highlight:rgba(255,155,4,1);
 	--white: rgba(255, 255, 255, 1);
-	--off-white: rgba(255, 253, 252, 1);
-	--grey-1: rgba(245, 243, 242, 1);
-	--grey-2: rgba(235, 231, 230, 1);
-	--grey-3: rgba(89, 87, 86, 1);
-	--grey-4: rgba(66, 64, 64, 1);
+	--off-white: rgb(249, 250, 252);
+	--grey-1: rgb(244, 244, 245);
+	--grey-2: rgb(239, 240, 241);
+	--grey-3: rgb(86, 87, 89);
+	--grey-4: rgb(64, 65, 66);
 	--black: rgb(43,45,47);
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--primary: rgba(57,132,255,1);
-		--highlight: rgba(97,157,238,1);
+		--primary: rgba(253,141,14,1);
+		--highlight:rgba(255,155,4,1);
 		--white: rgb(4,4,5);
-		--off-white: rgb(5,6,6);
+		--off-white: rgb(14, 15, 17);
 		--grey-1: rgb(24,24,25);
-		--grey-2: rgb(55,55,57);
-		--grey-3: rgb(154,154,159);
-		--grey-4: rgb(186,186,187);
+		--grey-2: rgb(51,54,57);
+		--grey-3: rgb(189,193,196);
+		--grey-4: rgb(213,218,221);
 		--black: rgba(197,203,208,1);
 		color: #fff;
 	}
