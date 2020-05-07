@@ -1,0 +1,96 @@
+@use "sass:color";
+@use "sass:map";
+
+:root {
+  --line-height: 1.5;
+
+  --font-size: 18px;
+	--font-size-m: 20px;
+  --font-size-l: 22px;
+
+  --body-font-weight: 400;
+	--bold-font-weight: 700;
+}
+
+$black: #000;
+$gray: rgb(111, 114, 117);
+$white: #fff;
+$primary: rgba(239,129,6,1);
+$highlight: rgba(255,155,4,1);
+
+$theme-colors: (
+  "primary": $primary,
+  "highlight": $highlight,
+  "black": $black,
+  "near-black": color.mix($black, $gray, $weight: 80%),
+  "dark-gray": color.mix($black, $gray, $weight: 50%),
+  "mid-gray": color.mix($black, $gray, $weight: 20%),
+  "gray": $gray,
+  "silver": color.mix($gray, $white, $weight: 80%),
+  "light-silver": color.mix($gray, $white, $weight: 60%),
+  "moon-gray": color.mix($gray, $white, $weight: 50%),
+  "light-gray": color.mix($gray, $white, $weight: 30%),
+  "near-white": color.mix($gray, $white, $weight: 10%),
+  "white": $white,
+);
+:root {
+  @each $key, $color in $theme-colors {
+    --#{$key}: #{$color};
+  }
+}
+:root {
+  $list: ("90": .9, "80": .8, "70": .7, "60": .6, "50": .5, "40": .4, "30": .3,
+          "20": .2, "10": .1, "05": .05, "025": .025, "0125": .0125);
+
+  @each $name, $num in $list {
+    $b: color.change($black, $alpha: $num);
+    $w: color.change($white, $alpha: $num);
+
+    --black-#{$name}: #{$b};
+    --white-#{$name}: #{$w};
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  $black: #fff;
+  $gray: rgb(111, 114, 117);
+  $white: #000;
+  $primary: rgb(253,141,14);
+  $highlight: rgb(255,155,4);
+
+  $theme-colors: (
+    "primary": $primary,
+    "highlight": $highlight,
+    "black": $black,
+    "near-black": color.mix($black, $gray, $weight: 80%),
+    "dark-gray": color.mix($black, $gray, $weight: 50%),
+    "mid-gray": color.mix($black, $gray, $weight: 20%),
+    "gray": $gray,
+    "silver": color.mix($gray, $white, $weight: 80%),
+    "light-silver": color.mix($gray, $white, $weight: 60%),
+    "moon-gray": color.mix($gray, $white, $weight: 50%),
+    "light-gray": color.mix($gray, $white, $weight: 30%),
+    "near-white": color.mix($gray, $white, $weight: 10%),
+    "white": $white,
+  );
+
+  :root {
+    @each $key, $color in $theme-colors {
+      --#{$key}: #{$color};
+    }
+  }
+  :root {
+    $list: ("90": .9, "80": .8, "70": .7, "60": .6, "50": .5, "40": .4, "30": .3,
+            "20": .2, "10": .1, "05": .05, "025": .025, "0125": .0125);
+
+    @each $name, $num in $list {
+      $b: color.change($black, $alpha: $num);
+      $w: color.change($white, $alpha: $num);
+
+      --black-#{$name}: #{$b};
+      --white-#{$name}: #{$w};
+    }
+  }
+}
+

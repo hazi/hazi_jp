@@ -1,0 +1,66 @@
+.primary {
+	color: var(--primary);
+}
+
+.primary svg {
+  fill: currentColor;
+}
+
+.lightbox-target {
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  opacity: 0;
+  transition: opacity .15s ease-in-out;
+  overflow: scroll;
+  z-index:300;
+}
+
+.lightbox-target:target {
+  opacity: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.lightbox-target:focus {
+  box-shadow: none;
+}
+
+.lightbox-target .container img {
+  max-width: 100vm;
+  max-height: 100vh;
+}
+
+:root {
+  color: var(--near-black);
+}
+
+html {
+  font-size: var(--font-size);
+  @media (--breakpoint-medium) {
+    font-size: var(--font-size-m);
+  }
+  @media (--breakpoint-large) {
+    font-size: var(--font-size-l);
+  }
+  background-color: var(--white);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--spacing-medium);
+  line-height: var(--line-height);
+  font-weight: var(--body-font-weight);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--near-white);
+}
+
+p {
+  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-medium);
+  max-width: 32rem
+}
