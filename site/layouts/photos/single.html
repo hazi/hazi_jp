@@ -1,0 +1,86 @@
+{{ define "main" }}
+
+  {{ $Page := . }}
+  <div class="mw8 center pa2-ns pv4">
+    <h1 class="f2 lh-title b pa2 mb3">{{.Title}}</h1>
+  </div>
+
+  <section class="cf mw8 center pa2-ns pv4 flex flex-wrap items-center">
+    {{- range .Resources.Match "*.jpg" }}
+      {{ $image := . }}
+
+      <div class="w-100 w-50-m w-25-l pa1">
+        <a class="db" href="{{ $Page.Permalink }}#{{ .Name }}">
+
+          {{ $imageSquareSet := slice }}
+          {{ $imageResizeSet := slice }}
+          {{ $imageThumbnail := "" }}
+          {{ $imageDefault := "" }}
+
+          {{ $widths := slice 180 360 540 600 720 900 1080 1296 1512 1728 2048 }}
+          {{ range $widths }}
+            {{ $squareLink := (printf "%dx%d Bottom" . . | $image.Fill).RelPermalink }}
+            {{ $link := (printf "%dx q90" . | $image.Resize).RelPermalink }}
+            {{ if eq . 600 }} {{ $imageThumbnail = $squareLink }} {{end}}
+            {{ if eq . 1512 }} {{ $imageDefault = $link }} {{end}}
+            {{ $imageSquareSet = $imageSquareSet | append (printf "%s %dw" $squareLink .) }}
+            {{ $imageResizeSet = $imageResizeSet | append (printf "%s %dw" $link .) }}
+          {{ end }}
+          {{ $imageSquareSet := (delimit $imageSquareSet ",") }}
+          {{ $imageResizeSet := (delimit $imageResizeSet ",") }}
+
+          <img class="db br0 w-100" src="{{ $imageThumbnail }}"
+               sizes="324px"
+               {{ printf "srcset=%q" $imageSquareSet | safeHTMLAttr }}>
+        </a>
+
+        <a id="{{ .Name }}" class="lightbox-target no-underline" href="{{ $Page.Permalink }}#close">
+          <figure class="container mw9 center pa2">
+            <img class="center db pv2" src="{{ $imageDefault }}"
+                sizes="100vm"
+                {{ printf "srcset=%q" $imageResizeSet | safeHTMLAttr }}>
+            <figcaption class="flex justify-center">
+              {{ with $image.Exif }}
+                <ul class="code f6 w-100 w-50-m w-30-ns pa2 ba bg-white-50 b--black-30 br2">
+                    {{ with .Date }}<li>{{ .Format "2006-01-02" }}</li>{{ end }}
+
+                    <li>{{ printf "%s %s" .Tags.Make .Tags.Model }}</li>
+
+                    {{ with .Tags.LensModel }}
+                      <li>{{.}}</li>
+                    {{ else }}
+                      <li>----</li>
+                    {{ end }}
+
+                    {{ $sets := slice }}
+                    {{ with .Tags.FocalLengthIn35mmFilm}}
+                      {{ $sets = $sets | append (printf "%d mm" .) }}
+                    {{ end }}
+                    {{ with .Tags.FNumber}}
+                      {{ $sets = $sets | append (string . | printf "ƒ/%s") }}
+                    {{ end }}
+                    {{ with .Tags.ExposureTime}}
+                      {{ $sets = $sets | append (string . | printf "%ss") }}
+                    {{ end }}
+                    {{ with .Tags.ISOSpeedRatings}}
+                      {{ $sets = $sets | append (printf "ISO %d" .) }}
+                    {{ end }}
+
+                    <li>
+                      {{ range $sets }}
+                        <span class="ac w-25">{{ . }}</span>
+                      {{ end }}
+                    </li>
+                </ul>
+              {{ end }}
+
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+    {{- end }}
+  </section>
+
+
+  {{ end }}
+
