@@ -8,5 +8,6 @@ title = "Homepage"
 # https://gohugo.io/getting-started/configuration/#toml-configuration
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 
+googleAnalytics = "UA-702672-13"
 [params]
   dateFormat = "2006-01-02"

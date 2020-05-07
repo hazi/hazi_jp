@@ -27,6 +27,9 @@
 	<meta property="og:title" content="Kaldi | Great coffee with a conscience">
 	<meta property="og:url" content="/">
 	<meta property="og:image" content="/img/og-image.jpg">
+  {{ if not .Site.IsServer }}
+    {{- partial "analytics" . -}}
+  {{end}}
 
   {{ if .IsHome }}
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
