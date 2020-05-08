@@ -15,6 +15,18 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Intro Blurb", name: "description", widget: "text"}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "photos"
+    label: "Photos"
+    folder: "site/content/photos"
+    create: true
+    slug: '{{fields.slug}}'
+    preview_path: photos/{{slug}}/
+    media_folder: './images' # Photo Upload directory
+    public_folder: '/photos/{{slug}}/images' # Photo URL
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
   - name: "pages"
     label: "Pages"
     files:

@@ -6,39 +6,17 @@
   </div>
 
   <section class="cf mw8 center pa2-ns pv4 flex flex-wrap items-center">
-    {{- range .Resources.Match "*.jpg" }}
+    {{- range .Resources.Match "images/*.jpg" }}
       {{ $image := . }}
 
       <div class="w-100 w-50-m w-25-l pa1">
         <a class="db" href="{{ $Page.Permalink }}#{{ .Name }}">
-
-          {{ $imageSquareSet := slice }}
-          {{ $imageResizeSet := slice }}
-          {{ $imageThumbnail := "" }}
-          {{ $imageDefault := "" }}
-
-          {{ $widths := slice 180 360 540 600 720 900 1080 1296 1512 1728 2048 }}
-          {{ range $widths }}
-            {{ $squareLink := (printf "%dx%d Bottom" . . | $image.Fill).RelPermalink }}
-            {{ $link := (printf "%dx q90" . | $image.Resize).RelPermalink }}
-            {{ if eq . 600 }} {{ $imageThumbnail = $squareLink }} {{end}}
-            {{ if eq . 1512 }} {{ $imageDefault = $link }} {{end}}
-            {{ $imageSquareSet = $imageSquareSet | append (printf "%s %dw" $squareLink .) }}
-            {{ $imageResizeSet = $imageResizeSet | append (printf "%s %dw" $link .) }}
-          {{ end }}
-          {{ $imageSquareSet := (delimit $imageSquareSet ",") }}
-          {{ $imageResizeSet := (delimit $imageResizeSet ",") }}
-
-          <img class="db br0 w-100" src="{{ $imageThumbnail }}"
-               sizes="324px"
-               {{ printf "srcset=%q" $imageSquareSet | safeHTMLAttr }}>
+          <img class="db br0 w-100" src="{{ .RelPermalink }}" sizes="324px">
         </a>
 
         <a id="{{ .Name }}" class="lightbox-target no-underline" href="{{ $Page.Permalink }}#close">
           <figure class="container mw9 center pa2">
-            <img class="center db pv2" src="{{ $imageDefault }}"
-                sizes="100vm"
-                {{ printf "srcset=%q" $imageResizeSet | safeHTMLAttr }}>
+            <img class="center db pv2" src="{{ .RelPermalink }}" sizes="100vm">
             <figcaption class="flex justify-center">
               {{ with $image.Exif }}
                 <ul class="code f6 w-100 w-50-m w-30-ns pa2 ba bg-white-50 b--black-30 br2">
