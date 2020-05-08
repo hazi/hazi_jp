@@ -1,0 +1,3 @@
+[submodule "src/vender/tachyons"]
+	path = src/vender/tachyons
+	url = git@github.com:tachyons-css/tachyons.git

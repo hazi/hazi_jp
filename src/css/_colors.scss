@@ -1,0 +1,91 @@
+/* Text colors */
+
+.primary {
+  color: var(--primary);
+}
+
+.highlight {
+  color: var(--highlight);
+}
+
+.white {
+  color: var(--white);
+}
+
+.off-white {
+  color: var(--near-white);
+}
+
+.grey-1 {
+  color: var(--light-gray);
+}
+
+.grey-2 {
+  color: var(--moon-gray);
+}
+
+.grey-3 {
+  color: var(--gray);
+}
+
+.grey-4 {
+  color: var(--dark-gray);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-highlight {
+  background-color: var(--highlight);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-off-white {
+  background-color: var(--near-white);
+}
+
+.bg-grey-1 {
+  background-color: var(--light-gray);
+}
+
+.bg-grey-2 {
+  background-color: var(--moon-gray);
+}
+
+.bg-grey-3 {
+  background-color: var(--gray);
+}
+
+.bg-grey-4 {
+  background-color: var(--dark-gray);
+}
+
+.bg-black {
+  background-color: var(--black);
+}
+
+.bg-fix-primary {
+  padding: 0 var(--spacing-small);
+  & :first-child {
+    box-shadow: var(--spacing-small) 0 0 var(--primary), -var(--spacing-small) 0 0 var(--primary);
+  }
+}
+
+::selection {
+  background-color: var(--highlight);
+}
+
+/* Used in the navbar */
+.divider-grey {
+  box-shadow: inset 0 -4px 0 var(--light-gray);
+  & a {
+    transition: var(--hover-transition);
+  }
+  & ul a:hover, & ul a:focus {
+    box-shadow: inset 0 -4px 0 var(--primary);
+  }
+}
