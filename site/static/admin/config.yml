@@ -20,6 +20,7 @@ collections: # A list of collections the CMS should be able to edit
     folder: "site/content/photos"
     create: true
     slug: '{{fields.slug}}'
+    path: '/{{slug}}'
     preview_path: photos/{{slug}}/
     media_folder: './images' # Photo Upload directory
     public_folder: '/photos/{{slug}}/images' # Photo URL
@@ -27,6 +28,12 @@ collections: # A list of collections the CMS should be able to edit
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: 'Slug', name: 'slug', widget: 'string' }
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        media_library:
+          config:
+            multiple: true
   - name: "pages"
     label: "Pages"
     files:
