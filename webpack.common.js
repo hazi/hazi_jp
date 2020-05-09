@@ -1,6 +1,6 @@
 const webpack = require("webpack");
 const path = require("path");
-const Fiber = require('fibers');
+const fiber = require('fibers');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AssetsPlugin = require("assets-webpack-plugin");
