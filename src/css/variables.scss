@@ -17,6 +17,8 @@ $gray: rgb(111, 114, 117);
 $white: #fff;
 $primary: rgba(239,129,6,1);
 $highlight: rgba(255,155,4,1);
+$alpha-list: ("90": .9, "80": .8, "70": .7, "60": .6, "50": .5, "40": .4, "30": .3,
+              "20": .2, "10": .1, "05": .05, "025": .025, "0125": .0125);
 
 $theme-colors: (
   "primary": $primary,
@@ -38,11 +40,9 @@ $theme-colors: (
     --#{$key}: #{$color};
   }
 }
-:root {
-  $list: ("90": .9, "80": .8, "70": .7, "60": .6, "50": .5, "40": .4, "30": .3,
-          "20": .2, "10": .1, "05": .05, "025": .025, "0125": .0125);
 
-  @each $name, $num in $list {
+:root {
+  @each $name, $num in $alpha-list {
     $b: color.change($black, $alpha: $num);
     $w: color.change($white, $alpha: $num);
 
@@ -81,10 +81,7 @@ $theme-colors: (
     }
   }
   :root {
-    $list: ("90": .9, "80": .8, "70": .7, "60": .6, "50": .5, "40": .4, "30": .3,
-            "20": .2, "10": .1, "05": .05, "025": .025, "0125": .0125);
-
-    @each $name, $num in $list {
+    @each $name, $num in $alpha-list {
       $b: color.change($black, $alpha: $num);
       $w: color.change($white, $alpha: $num);
 
