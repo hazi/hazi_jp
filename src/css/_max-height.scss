@@ -1,0 +1,67 @@
+/* Max Width Percentages */
+
+.maxh-100  { max-height: 100%; }
+
+/* Max Width Scale */
+
+.maxh1  {  max-height: 1rem; }
+.maxh2  {  max-height: 2rem; }
+.maxh3  {  max-height: 4rem; }
+.maxh4  {  max-height: 8rem; }
+.maxh5  {  max-height: 16rem; }
+.maxh6  {  max-height: 32rem; }
+.maxh7  {  max-height: 48rem; }
+.maxh8  {  max-height: 64rem; }
+.maxh9  {  max-height: 96rem; }
+
+/* Max Width String Properties */
+
+.maxh-none { max-height: none; }
+
+@media (--breakpoint-not-small) {
+  .maxh-100-ns  { max-height: 100%; }
+
+  .maxh1-ns  {  max-height: 1rem; }
+  .maxh2-ns  {  max-height: 2rem; }
+  .maxh3-ns  {  max-height: 4rem; }
+  .maxh4-ns  {  max-height: 8rem; }
+  .maxh5-ns  {  max-height: 16rem; }
+  .maxh6-ns  {  max-height: 32rem; }
+  .maxh7-ns  {  max-height: 48rem; }
+  .maxh8-ns  {  max-height: 64rem; }
+  .maxh9-ns  {  max-height: 96rem; }
+
+  .maxh-none-ns { max-height: none; }
+}
+
+@media (--breakpoint-medium) {
+  .maxh-100-m  { max-height: 100%; }
+
+  .maxh1-m  {  max-height: 1rem; }
+  .maxh2-m  {  max-height: 2rem; }
+  .maxh3-m  {  max-height: 4rem; }
+  .maxh4-m  {  max-height: 8rem; }
+  .maxh5-m  {  max-height: 16rem; }
+  .maxh6-m  {  max-height: 32rem; }
+  .maxh7-m  {  max-height: 48rem; }
+  .maxh8-m  {  max-height: 64rem; }
+  .maxh9-m  {  max-height: 96rem; }
+
+  .maxh-none-m { max-height: none; }
+}
+
+@media (--breakpoint-large) {
+  .maxh-100-l  { max-height: 100%; }
+
+  .maxh1-l  {  max-height: 1rem; }
+  .maxh2-l  {  max-height: 2rem; }
+  .maxh3-l  {  max-height: 4rem; }
+  .maxh4-l  {  max-height: 8rem; }
+  .maxh5-l  {  max-height: 16rem; }
+  .maxh6-l  {  max-height: 32rem; }
+  .maxh7-l  {  max-height: 48rem; }
+  .maxh8-l  {  max-height: 64rem; }
+  .maxh9-l  {  max-height: 96rem; }
+
+  .maxh-none-l { max-height: none; }
+}
