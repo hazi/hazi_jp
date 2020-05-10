@@ -11,12 +11,36 @@
 
       <div class="w-100 w-50-m w-25-l pa1">
         <a class="db" href="{{ $Page.Permalink }}#{{ .Name }}">
-          <img class="db br0 w-100" src="{{ .RelPermalink }}" sizes="324px">
+          <img class="lazyload db br0 w-100"
+               data-sizes="auto"
+               data-srcset="
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=280&h=280 280w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=350&h=350 350w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=400&h=400 400w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=550&h=550 550w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=700&h=700 700w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=800&h=800 800w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=950&h=950 950w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=1050&h=1050 1050w,
+                 {{ .RelPermalink }}?nf_resize=smartcrop&w=1400&h=1400 1400w"
+               src="{{ .RelPermalink }}?nf_resize=smartcrop&w=30&h=30">
         </a>
 
         <a id="{{ .Name }}" class="lightbox-target no-underline" href="{{ $Page.Permalink }}#close">
           <figure class="container mw9 center pa2">
-            <img class="center db pv2" src="{{ .RelPermalink }}" sizes="100vm">
+            <img class="lazyload center db pv2 w-100"
+               data-sizes="auto"
+               data-srcset="
+                 {{ .RelPermalink }}?nf_resize=fit&w=360&h=360 360w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=720&h=720 720w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=900&h=900 900w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=1080&h=1080 1080w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=1296&h=1296 1296w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=1512&h=1512 1512w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=1728&h=1728 1728w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=2048&h=2048 2048w,
+                 {{ .RelPermalink }}?nf_resize=fit&w=3000&h=3000 3000w"
+               src="{{ .RelPermalink }}?nf_resize=fit&w=30">
             <figcaption class="flex justify-center">
               {{ with $image.Exif }}
                 <ul class="code f6 w-100 w-50-m w-30-ns pa2 ba bg-white-50 b--black-30 br2">
