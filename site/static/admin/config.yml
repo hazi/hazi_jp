@@ -28,7 +28,7 @@ collections: # A list of collections the CMS should be able to edit
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: 'Slug', name: 'slug', widget: 'string' }
-      - label: "Featured Image"
+      - label: "Thumbnail Image"
         name: "thumbnail"
         widget: "image"
         media_library:
