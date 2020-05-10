@@ -24,7 +24,7 @@ collections: # A list of collections the CMS should be able to edit
     preview_path: photos/{{slug}}/
     media_folder: './images' # Photo Upload directory
     public_folder: '/photos/{{slug}}/images' # Photo URL
-    identifier_field: title
+    identifier_field: slug
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: 'Slug', name: 'slug', widget: 'string' }
