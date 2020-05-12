@@ -1,0 +1,27 @@
+.lightbox-target {
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity .15s ease-in-out;
+  overflow: scroll;
+  z-index:300;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:target {
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:not(:target) .container img {
+    width: 0px;
+    height: 0px;
+  }
+}

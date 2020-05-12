@@ -70,7 +70,7 @@
 
 .bg-fix-primary {
   padding: 0 var(--spacing-small);
-  & :first-child {
+  &:first-child {
     box-shadow: var(--spacing-small) 0 0 var(--primary), -var(--spacing-small) 0 0 var(--primary);
   }
 }
@@ -82,10 +82,11 @@
 /* Used in the navbar */
 .divider-grey {
   box-shadow: inset 0 -4px 0 var(--light-gray);
-  & a {
+
+  a {
     transition: var(--hover-transition);
   }
-  & ul a:hover, & ul a:focus {
+  ul a:hover, ul a:focus {
     box-shadow: inset 0 -4px 0 var(--primary);
   }
 }
